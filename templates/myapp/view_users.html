@@ -1,0 +1,37 @@
+<!-- view_users.html -->
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- ... (head content) ... -->
+</head>
+<body>
+    <div class="container">
+        <h2>Registered Users</h2>
+        <ul class="user-list">
+            {% for user in user_data %}
+            <li class="user-item">
+                <div class="user-profile-pic">
+                    <img src="{{ user.profile_pic.url }}" alt="{{ user.name }} Profile Picture">
+                </div>
+                <div class="user-details">
+                    <strong>Name:</strong> {{ user.name }}<br>
+                    <strong>Age:</strong> {{ user.age }}<br>
+                    <strong>Address:</strong> {{ user.address }}<br>
+                    <strong>Phone:</strong> {{ user.phone }}<br>
+                    <strong>Email:</strong> {{ user.email }}<br>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="view-button">
+            <a href="{% url 'index' %}" class="btn">Back to Registration</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
